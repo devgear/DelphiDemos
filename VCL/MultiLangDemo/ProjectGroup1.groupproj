@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{CA364523-D85E-493B-A4DC-33A93D1D31D4}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ProjectMultiLang.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ENU\ProjectMultiLang_ENU.bdsproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="JPN\ProjectMultiLang_JPN.bdsproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ProjectMultiLang">
+        <MSBuild Projects="ProjectMultiLang.dproj"/>
+    </Target>
+    <Target Name="ProjectMultiLang:Clean">
+        <MSBuild Projects="ProjectMultiLang.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectMultiLang:Make">
+        <MSBuild Projects="ProjectMultiLang.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ProjectMultiLang_ENU">
+        <MSBuild Projects="ENU\ProjectMultiLang_ENU.bdsproj"/>
+    </Target>
+    <Target Name="ProjectMultiLang_ENU:Clean">
+        <MSBuild Projects="ENU\ProjectMultiLang_ENU.bdsproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectMultiLang_ENU:Make">
+        <MSBuild Projects="ENU\ProjectMultiLang_ENU.bdsproj" Targets="Make"/>
+    </Target>
+    <Target Name="ProjectMultiLang_JPN">
+        <MSBuild Projects="JPN\ProjectMultiLang_JPN.bdsproj"/>
+    </Target>
+    <Target Name="ProjectMultiLang_JPN:Clean">
+        <MSBuild Projects="JPN\ProjectMultiLang_JPN.bdsproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectMultiLang_JPN:Make">
+        <MSBuild Projects="JPN\ProjectMultiLang_JPN.bdsproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ProjectMultiLang;ProjectMultiLang_ENU;ProjectMultiLang_JPN"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ProjectMultiLang:Clean;ProjectMultiLang_ENU:Clean;ProjectMultiLang_JPN:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ProjectMultiLang:Make;ProjectMultiLang_ENU:Make;ProjectMultiLang_JPN:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

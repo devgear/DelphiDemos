@@ -17,9 +17,9 @@ object Form1: TForm1
   object Label1: TLabel
     Left = 24
     Top = 21
-    Width = 55
+    Width = 110
     Height = 13
-    Caption = #53581#49828#53944#51221#47148
+    Caption = #53581#49828#53944#51221#47148'(Alignment)'
   end
   object Button1: TButton
     Left = 48
@@ -43,9 +43,9 @@ object Form1: TForm1
     Top = 128
     Width = 121
     Height = 21
-    EditLabel.Width = 102
+    EditLabel.Width = 151
     EditLabel.Height = 13
-    EditLabel.Caption = #53581#49828#53944#55180#53944' '#54364#49884#54616#44592
+    EditLabel.Caption = #53581#49828#53944#55180#53944' '#54364#49884#54616#44592'(TextHint)'
     TabOrder = 2
     TextHint = #53581#49828#53944#55180#53944
   end
@@ -135,6 +135,7 @@ object Form1: TForm1
     Caption = #52964#47592#46300' '#47553#53356' '#48169#49885
     Style = bsCommandLink
     TabOrder = 10
+    OnClick = Button4Click
   end
   object Button5: TButton
     Left = 24

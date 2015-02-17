@@ -29,6 +29,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure ComboBox1KeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure Button4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -51,6 +52,8 @@ procedure TForm1.Button1Click(Sender: TObject);
 begin
   Edit1.Alignment := TAlignment (
     (Ord (Edit1.Alignment) + 1) mod (Ord(High(TAlignment)) + 1));
+
+  PopupParent
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);
@@ -62,6 +65,11 @@ begin
 
   Edit2.Text := 'Humphery Kim';
   Memo1.Text := 'Humphery Kim';
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+  ShowMessage('커맨드 링크 버튼도 일반버튼과 기능이 동일합니다.');
 end;
 
 procedure TForm1.ComboBox1KeyUp(Sender: TObject; var Key: Word;
