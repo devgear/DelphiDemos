@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{55798ADB-E10B-4CCA-BAF3-395AAF093DD1}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="02_Tracing_Monitoring\ProjectTracingMonitoring.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="03_CachedUpdates_AutoInc\ProjectCachedUpdateAutoInc.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ProjectTracingMonitoring">
+        <MSBuild Projects="02_Tracing_Monitoring\ProjectTracingMonitoring.dproj"/>
+    </Target>
+    <Target Name="ProjectTracingMonitoring:Clean">
+        <MSBuild Projects="02_Tracing_Monitoring\ProjectTracingMonitoring.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectTracingMonitoring:Make">
+        <MSBuild Projects="02_Tracing_Monitoring\ProjectTracingMonitoring.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ProjectCachedUpdateAutoInc">
+        <MSBuild Projects="03_CachedUpdates_AutoInc\ProjectCachedUpdateAutoInc.dproj"/>
+    </Target>
+    <Target Name="ProjectCachedUpdateAutoInc:Clean">
+        <MSBuild Projects="03_CachedUpdates_AutoInc\ProjectCachedUpdateAutoInc.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectCachedUpdateAutoInc:Make">
+        <MSBuild Projects="03_CachedUpdates_AutoInc\ProjectCachedUpdateAutoInc.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ProjectTracingMonitoring;ProjectCachedUpdateAutoInc"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ProjectTracingMonitoring:Clean;ProjectCachedUpdateAutoInc:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ProjectTracingMonitoring:Make;ProjectCachedUpdateAutoInc:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
