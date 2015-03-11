@@ -20,9 +20,6 @@ object Form2: TForm2
     Height = 41
     Align = alTop
     TabOrder = 0
-    ExplicitLeft = 168
-    ExplicitTop = 184
-    ExplicitWidth = 185
     object Button1: TButton
       Left = 16
       Top = 10
@@ -61,6 +58,10 @@ object Form2: TForm2
     TabOrder = 1
     object TabSheet1: TTabSheet
       Caption = #45936#51060#53552
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object StringGrid1: TStringGrid
         Left = 0
         Top = 0
@@ -85,10 +86,6 @@ object Form2: TForm2
         Height = 293
         Align = alClient
         TabOrder = 0
-        ExplicitLeft = 152
-        ExplicitTop = 104
-        ExplicitWidth = 185
-        ExplicitHeight = 89
       end
     end
   end

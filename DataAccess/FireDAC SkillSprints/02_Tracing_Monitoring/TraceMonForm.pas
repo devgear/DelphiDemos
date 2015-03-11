@@ -1,7 +1,7 @@
 {
   Âü°í ±Û : http://blog.hjf.pe.kr/328
 }
-unit Unit2;
+unit TraceMonForm;
 
 interface
 

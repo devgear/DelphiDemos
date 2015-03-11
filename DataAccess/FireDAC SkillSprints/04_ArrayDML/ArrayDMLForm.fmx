@@ -1,0 +1,91 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  Caption = 'Array DML Demo'
+  ClientHeight = 265
+  ClientWidth = 361
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Button1: TButton
+    Position.X = 16.000000000000000000
+    Position.Y = 16.000000000000000000
+    Size.Width = 145.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Text = 'Insert STD'
+    OnClick = Button1Click
+  end
+  object Button3: TButton
+    Position.X = 16.000000000000000000
+    Position.Y = 96.000000000000000000
+    Size.Width = 145.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 8
+    Text = 'Insert Array DML'
+    OnClick = Button3Click
+  end
+  object Button2: TButton
+    Position.X = 16.000000000000000000
+    Position.Y = 56.000000000000000000
+    Size.Width = 145.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Text = 'Insert STD(Transaction)'
+    OnClick = Button2Click
+  end
+  object Memo1: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    Position.X = 176.000000000000000000
+    Position.Y = 16.000000000000000000
+    Size.Width = 177.000000000000000000
+    Size.Height = 241.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 15
+  end
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      
+        'Database=D:\Projects\DelphiDemos\DataAccess\FireDAC SkillSprints' +
+        '\SampleData\ARRAYDMLDEMO.GDB'
+      'User_Name=sysdba'
+      'Password=masterkey'
+      'CharacterSet=UTF8'
+      'DriverID=IB')
+    Connected = True
+    LoginPrompt = False
+    Left = 24
+    Top = 152
+  end
+  object FDQuery1: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'INSERT INTO Test(Field1, Field2)'
+      'VALUES(:Field1, :Field2)')
+    Left = 120
+    Top = 152
+    ParamData = <
+      item
+        Name = 'FIELD1'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end
+      item
+        Name = 'FIELD2'
+        DataType = ftString
+        ParamType = ptInput
+        Value = Null
+      end>
+  end
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'FMX'
+    ScreenCursor = gcrHourGlass
+    Left = 56
+    Top = 216
+  end
+end

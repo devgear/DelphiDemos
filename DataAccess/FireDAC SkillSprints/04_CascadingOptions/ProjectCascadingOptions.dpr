@@ -1,8 +1,8 @@
-program ProjectTracingMonitoring;
+program ProjectCascadingOptions;
 
 uses
   Vcl.Forms,
-  TraceMonForm in 'TraceMonForm.pas' {Form2};
+  OptionsForm in 'OptionsForm.pas' {Form2};
 
 {$R *.res}
 
