@@ -2,7 +2,7 @@ program ProjectCachedUpdateAutoInc;
 
 uses
   Vcl.Forms,
-  Unit2 in 'Unit2.pas' {Form2};
+  CachedUpdateForm in 'CachedUpdateForm.pas' {Form2};
 
 {$R *.res}
 

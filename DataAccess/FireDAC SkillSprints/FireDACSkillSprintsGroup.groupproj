@@ -9,6 +9,12 @@
         <Projects Include="03_CachedUpdates_AutoInc\ProjectCachedUpdateAutoInc.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="04_ArrayDML\ProjectArrayDML.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="04_CascadingOptions\ProjectCascadingOptions.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -35,14 +41,32 @@
     <Target Name="ProjectCachedUpdateAutoInc:Make">
         <MSBuild Projects="03_CachedUpdates_AutoInc\ProjectCachedUpdateAutoInc.dproj" Targets="Make"/>
     </Target>
+    <Target Name="ProjectArrayDML">
+        <MSBuild Projects="04_ArrayDML\ProjectArrayDML.dproj"/>
+    </Target>
+    <Target Name="ProjectArrayDML:Clean">
+        <MSBuild Projects="04_ArrayDML\ProjectArrayDML.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectArrayDML:Make">
+        <MSBuild Projects="04_ArrayDML\ProjectArrayDML.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ProjectCascadingOptions">
+        <MSBuild Projects="04_CascadingOptions\ProjectCascadingOptions.dproj"/>
+    </Target>
+    <Target Name="ProjectCascadingOptions:Clean">
+        <MSBuild Projects="04_CascadingOptions\ProjectCascadingOptions.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectCascadingOptions:Make">
+        <MSBuild Projects="04_CascadingOptions\ProjectCascadingOptions.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="ProjectTracingMonitoring;ProjectCachedUpdateAutoInc"/>
+        <CallTarget Targets="ProjectTracingMonitoring;ProjectCachedUpdateAutoInc;ProjectArrayDML;ProjectCascadingOptions"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="ProjectTracingMonitoring:Clean;ProjectCachedUpdateAutoInc:Clean"/>
+        <CallTarget Targets="ProjectTracingMonitoring:Clean;ProjectCachedUpdateAutoInc:Clean;ProjectArrayDML:Clean;ProjectCascadingOptions:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="ProjectTracingMonitoring:Make;ProjectCachedUpdateAutoInc:Make"/>
+        <CallTarget Targets="ProjectTracingMonitoring:Make;ProjectCachedUpdateAutoInc:Make;ProjectArrayDML:Make;ProjectCascadingOptions:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
