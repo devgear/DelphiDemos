@@ -12,7 +12,10 @@
         <Projects Include="04_ArrayDML\ProjectArrayDML.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="04_CascadingOptions\ProjectCascadingOptions.dproj">
+        <Projects Include="05_CascadingOptions\ProjectCascadingOptions.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="06_Preprocessing\ProjectMacro.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -51,22 +54,31 @@
         <MSBuild Projects="04_ArrayDML\ProjectArrayDML.dproj" Targets="Make"/>
     </Target>
     <Target Name="ProjectCascadingOptions">
-        <MSBuild Projects="04_CascadingOptions\ProjectCascadingOptions.dproj"/>
+        <MSBuild Projects="05_CascadingOptions\ProjectCascadingOptions.dproj"/>
     </Target>
     <Target Name="ProjectCascadingOptions:Clean">
-        <MSBuild Projects="04_CascadingOptions\ProjectCascadingOptions.dproj" Targets="Clean"/>
+        <MSBuild Projects="05_CascadingOptions\ProjectCascadingOptions.dproj" Targets="Clean"/>
     </Target>
     <Target Name="ProjectCascadingOptions:Make">
-        <MSBuild Projects="04_CascadingOptions\ProjectCascadingOptions.dproj" Targets="Make"/>
+        <MSBuild Projects="05_CascadingOptions\ProjectCascadingOptions.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ProjectMacro">
+        <MSBuild Projects="06_Preprocessing\ProjectMacro.dproj"/>
+    </Target>
+    <Target Name="ProjectMacro:Clean">
+        <MSBuild Projects="06_Preprocessing\ProjectMacro.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectMacro:Make">
+        <MSBuild Projects="06_Preprocessing\ProjectMacro.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="ProjectTracingMonitoring;ProjectCachedUpdateAutoInc;ProjectArrayDML;ProjectCascadingOptions"/>
+        <CallTarget Targets="ProjectTracingMonitoring;ProjectCachedUpdateAutoInc;ProjectArrayDML;ProjectCascadingOptions;ProjectMacro"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="ProjectTracingMonitoring:Clean;ProjectCachedUpdateAutoInc:Clean;ProjectArrayDML:Clean;ProjectCascadingOptions:Clean"/>
+        <CallTarget Targets="ProjectTracingMonitoring:Clean;ProjectCachedUpdateAutoInc:Clean;ProjectArrayDML:Clean;ProjectCascadingOptions:Clean;ProjectMacro:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="ProjectTracingMonitoring:Make;ProjectCachedUpdateAutoInc:Make;ProjectArrayDML:Make;ProjectCascadingOptions:Make"/>
+        <CallTarget Targets="ProjectTracingMonitoring:Make;ProjectCachedUpdateAutoInc:Make;ProjectArrayDML:Make;ProjectCascadingOptions:Make;ProjectMacro:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

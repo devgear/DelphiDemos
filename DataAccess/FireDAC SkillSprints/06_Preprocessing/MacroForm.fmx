@@ -1,0 +1,217 @@
+object Form4: TForm4
+  Left = 0
+  Top = 0
+  Caption = 'Preprocessing Macro Demo'
+  ClientHeight = 499
+  ClientWidth = 610
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object TabControl1: TTabControl
+    Align = Client
+    Size.Width = 610.000000000000000000
+    Size.Height = 499.000000000000000000
+    Size.PlatformDefault = False
+    TabIndex = 0
+    TabOrder = 0
+    TabPosition = PlatformDefault
+    object TabItem1: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 159.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Macro'#47196' '#45936#51060#53552' '#53456#49353' '#45936#47784
+      object Layout1: TLayout
+        Align = Left
+        Size.Width = 209.000000000000000000
+        Size.Height = 474.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 7
+        object Label1: TLabel
+          Position.X = 8.000000000000000000
+          Position.Y = 8.000000000000000000
+          Text = #53580#51060#48660
+        end
+        object ListBox1: TListBox
+          Position.X = 8.000000000000000000
+          Position.Y = 32.000000000000000000
+          Size.Width = 193.000000000000000000
+          Size.Height = 217.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          DisableFocusEffect = True
+          ItemIndex = 0
+          Items.Strings = (
+            'ANIMALS'
+            'BIOLIFE'
+            'COUNTRY'
+            'CUSTOLY'
+            'CUSTOMER'
+            'EMPLOYEE'
+            'INDUSTRY'
+            'ITEMS'
+            'MASTER'
+            'NEXTCUST'
+            'NEXTITEM'
+            'NEXTORD'
+            'ORDERS'
+            'PARTS'
+            'VENDORS'
+            'VENUES')
+          DefaultItemStyles.ItemStyle = ''
+          DefaultItemStyles.GroupHeaderStyle = ''
+          DefaultItemStyles.GroupFooterStyle = ''
+          OnChange = ListBox1Change
+        end
+        object Label2: TLabel
+          Position.X = 8.000000000000000000
+          Position.Y = 256.000000000000000000
+          Text = #54596#46300'('#45796#51473#49440#53469')'
+        end
+        object CheckBox1: TCheckBox
+          Position.X = 128.000000000000000000
+          Position.Y = 256.000000000000000000
+          Size.Width = 73.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 13
+          Text = #51204#52404#49440#53469
+          OnChange = CheckBox1Change
+        end
+        object ListBox2: TListBox
+          Position.X = 8.000000000000000000
+          Position.Y = 280.000000000000000000
+          Size.Width = 193.000000000000000000
+          Size.Height = 185.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          DisableFocusEffect = True
+          DefaultItemStyles.ItemStyle = ''
+          DefaultItemStyles.GroupHeaderStyle = ''
+          DefaultItemStyles.GroupFooterStyle = ''
+          ShowCheckboxes = True
+        end
+      end
+      object Layout2: TLayout
+        Align = Client
+        Size.Width = 401.000000000000000000
+        Size.Height = 474.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 6
+        object Button1: TButton
+          Position.X = 4.000000000000000000
+          Position.Y = 4.000000000000000000
+          Size.Width = 169.000000000000000000
+          Size.Height = 26.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          Text = #49440#53469' '#45936#51060#53552' '#54364#49884
+          OnClick = Button1Click
+        end
+        object Grid1: TGrid
+          Align = Client
+          Margins.Left = 4.000000000000000000
+          Margins.Top = 32.000000000000000000
+          Margins.Right = 8.000000000000000000
+          Margins.Bottom = 8.000000000000000000
+          Size.Width = 389.000000000000000000
+          Size.Height = 434.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          RowCount = 100
+          RowHeight = 21.000000000000000000
+        end
+      end
+    end
+    object TabItem2: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 116.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Macro Query '#45936#47784
+      object chkMacroQueryActive: TCheckBox
+        Align = Top
+        Size.Width = 610.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Active'
+        OnChange = chkMacroQueryActiveChange
+      end
+      object Grid2: TGrid
+        Align = Client
+        Size.Width = 610.000000000000000000
+        Size.Height = 438.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        RowCount = 100
+        RowHeight = 21.000000000000000000
+      end
+      object Label3: TLabel
+        Align = Bottom
+        Position.Y = 457.000000000000000000
+        Size.Width = 610.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        Text = 
+          'RAD Studio IDE > Tools > FireDAC Monitor'#47196' '#48320#54872#51204' '#53244#47532#50752' '#48320#54872' '#54980' '#53244#47532#47484' '#54869#51064#54624' '#49688 +
+          ' '#51080#49845#45768#45796'.'
+      end
+    end
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = DM.qryTables
+    ScopeMappings = <>
+    Left = 240
+    Top = 224
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 236
+    Top = 125
+    object LinkListControlToField2: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'TABLENAME'
+      Control = ListBox1
+      FillExpressions = <>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+    object LinkGridToDataSourceBindSourceDB22: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB2
+      GridControl = Grid1
+      Columns = <>
+    end
+    object LinkGridToDataSourceBindSourceDB3: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB3
+      GridControl = Grid2
+      Columns = <>
+    end
+  end
+  object BindSourceDB2: TBindSourceDB
+    DataSet = DM.qrySelect
+    ScopeMappings = <>
+    Left = 344
+    Top = 224
+  end
+  object BindSourceDB3: TBindSourceDB
+    DataSet = DM.qryMacroQuery
+    ScopeMappings = <>
+    Left = 288
+    Top = 232
+  end
+end
