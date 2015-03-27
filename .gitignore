@@ -19,3 +19,4 @@ dunit.ini
 OSX32/*
 iOSDevice/*
 Android/*
+/DataAccess/FireDAC SkillSprints/02_Tracing_Monitoring/Win32/Debug/trace.txt
