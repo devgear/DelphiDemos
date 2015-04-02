@@ -51,7 +51,6 @@ type
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure Button5Click(Sender: TObject);
-    procedure Button9Click(Sender: TObject);
   private
     { Private declarations }
     procedure DBGridColumnAutoSize(ADBGrid: TDBGrid);
@@ -77,22 +76,6 @@ begin
 
   DM.FDTable1.Close;
   DM.FDTable1.Open;
-{
-  Memo1.Lines.Clear;
-  MetaData := EmployeeConnection.ConnectionMetaDataIntf;
-
-  Memo1.Lines.Add(MetaData.ServerVersion.ToString());
-  Memo1.Lines.Add(MetaData.ClientVersion.ToString());
-
-  DataView := MetaData.GetTables([TFDPhysObjectScope.osMy], [TFDPhysTableKind.tkTable], '', '', '');
-
-  for I := 0 to DataView.Table.Columns.Count - 1 do
-  begin
-    Memo1.Lines.Add(DataView.Table.Columns[I].Name);
-    Memo1.Lines.Add(DataView.Table.Columns[I].Caption);
-  end;
-  MetaData := nil;
-}
 end;
 
 procedure TForm2.Button2Click(Sender: TObject);
@@ -147,14 +130,6 @@ begin
     DM.FDMetaInfoQuery1.MetaInfoKind := TFDPhysMetaInfoKind.mkProcs
   ;
   ///
-  DM.FDMetaInfoQuery1.Open;
-
-  DBGridColumnAutoSize(DBGrid2);
-end;
-
-procedure TForm2.Button9Click(Sender: TObject);
-begin
-  DM.FDMetaInfoQuery1.Close;
   DM.FDMetaInfoQuery1.Open;
 
   DBGridColumnAutoSize(DBGrid2);

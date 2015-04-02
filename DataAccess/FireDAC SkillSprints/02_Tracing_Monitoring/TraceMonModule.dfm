@@ -1,29 +1,29 @@
 object DM: TDM
   OldCreateOrder = False
-  Height = 526
-  Width = 632
+  Height = 277
+  Width = 507
   object FDMoniFlatFileClientLink1: TFDMoniFlatFileClientLink
-    Left = 384
-    Top = 136
+    Left = 152
+    Top = 40
   end
   object FDMoniRemoteClientLink1: TFDMoniRemoteClientLink
     EventKinds = [ekCmdPrepare, ekCmdExecute, ekCmdDataIn, ekCmdDataOut, ekAdaptUpdate]
     Tracing = True
-    Left = 384
-    Top = 208
+    Left = 280
+    Top = 40
   end
   object FDMetaInfoQuery1: TFDMetaInfoQuery
     Connection = FDConnection1
     MetaInfoKind = mkTableFields
     TableKinds = [tkTable]
     ObjectName = 'CUSTOMER'
-    Left = 160
+    Left = 152
     Top = 112
   end
   object FDGUIxWaitCursor1: TFDGUIxWaitCursor
     Provider = 'Forms'
-    Left = 504
-    Top = 120
+    Left = 416
+    Top = 40
   end
   object FDConnection1: TFDConnection
     Params.Strings = (
@@ -52,7 +52,7 @@ object DM: TDM
   end
   object dsMetadata: TDataSource
     DataSet = FDMetaInfoQuery1
-    Left = 160
+    Left = 152
     Top = 192
   end
 end

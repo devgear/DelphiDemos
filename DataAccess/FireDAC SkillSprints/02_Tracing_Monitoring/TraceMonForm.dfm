@@ -18,15 +18,11 @@ object Form2: TForm2
     Top = 0
     Width = 701
     Height = 472
-    ActivePage = TabSheet1
+    ActivePage = TabSheet2
     Align = alClient
     TabOrder = 0
-    ExplicitTop = 41
-    ExplicitHeight = 431
     object TabSheet1: TTabSheet
       Caption = #52628#51201' && '#47784#45768#53552#47553
-      ExplicitLeft = 8
-      ExplicitTop = 28
       object Panel1: TPanel
         Left = 0
         Top = 0
@@ -86,8 +82,6 @@ object Form2: TForm2
     object TabSheet2: TTabSheet
       Caption = #50672#44208#51221#48372
       ImageIndex = 1
-      ExplicitWidth = 493
-      ExplicitHeight = 293
       object Memo1: TMemo
         Left = 0
         Top = 41
@@ -95,9 +89,6 @@ object Form2: TForm2
         Height = 403
         Align = alClient
         TabOrder = 0
-        ExplicitTop = 0
-        ExplicitWidth = 493
-        ExplicitHeight = 293
       end
       object Panel2: TPanel
         Left = 0
@@ -106,7 +97,6 @@ object Form2: TForm2
         Height = 41
         Align = alTop
         TabOrder = 1
-        ExplicitTop = 8
         object Button3: TButton
           Left = 0
           Top = 10
@@ -121,7 +111,6 @@ object Form2: TForm2
     object TabSheet3: TTabSheet
       Caption = #47700#53440#45936#51060#53552'-TFDConnection'
       ImageIndex = 2
-      ExplicitHeight = 403
       object Panel3: TPanel
         Left = 0
         Top = 0
@@ -129,7 +118,6 @@ object Form2: TForm2
         Height = 41
         Align = alTop
         TabOrder = 0
-        ExplicitTop = 8
         object Button6: TButton
           Left = 5
           Top = 10
@@ -174,15 +162,11 @@ object Form2: TForm2
         Height = 403
         Align = alClient
         TabOrder = 1
-        ExplicitTop = 0
-        ExplicitWidth = 493
-        ExplicitHeight = 293
       end
     end
     object TabSheet4: TTabSheet
       Caption = #47700#53440#45936#51060#53552'-TFDMetaInfoQuery'
       ImageIndex = 3
-      ExplicitHeight = 403
       object DBGrid2: TDBGrid
         Left = 0
         Top = 41
@@ -205,7 +189,6 @@ object Form2: TForm2
         Height = 41
         Align = alTop
         TabOrder = 1
-        ExplicitTop = 8
         object Button5: TButton
           Left = 5
           Top = 10
