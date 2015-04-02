@@ -17,28 +17,29 @@ uses
 
 type
   TForm2 = class(TForm)
-    FDConnection1: TFDConnection;
-    FDQuery1: TFDQuery;
-    FDGUIxWaitCursor1: TFDGUIxWaitCursor;
-    FDQuery1SEQ: TIntegerField;
-    FDQuery1FIELD1: TWideStringField;
-    FDQuery1FIELD2: TIntegerField;
     DBGrid1: TDBGrid;
-    DataSource1: TDataSource;
     DBNavigator1: TDBNavigator;
-    GroupBox1: TGroupBox;
-    btnCancelRefresh: TButton;
+    DBGrid2: TDBGrid;
+    btnViewCache: TButton;
     btnApplyUpdates: TButton;
-    chkUseCachedUpdates: TCheckBox;
+    btnCancelUpdates: TButton;
     Label1: TLabel;
-    chkUseAutoGenerateValue: TCheckBox;
-    FDTable1: TFDTable;
-    procedure btnCancelRefreshClick(Sender: TObject);
+    btnOldValue: TButton;
+    btnLastUndo: TButton;
+    btnRevertRecord: TButton;
+    btnSavePoint: TButton;
+    btnBackSPoint: TButton;
+    procedure btnCancelUpdatesClick(Sender: TObject);
     procedure btnApplyUpdatesClick(Sender: TObject);
-    procedure chkUseCachedUpdatesClick(Sender: TObject);
-    procedure chkUseAutoGenerateValueClick(Sender: TObject);
+    procedure btnViewCacheClick(Sender: TObject);
+    procedure btnOldValueClick(Sender: TObject);
+    procedure btnLastUndoClick(Sender: TObject);
+    procedure btnRevertRecordClick(Sender: TObject);
+    procedure btnSavePointClick(Sender: TObject);
+    procedure btnBackSPointClick(Sender: TObject);
   private
     { Private declarations }
+    FSavePoint: Integer;
   public
     { Public declarations }
   end;
@@ -50,65 +51,70 @@ implementation
 
 {$R *.dfm}
 
-// <실행전 주의>
- // SAMPLE.GDB파일을 FDConnection1 > Database에 설정
-procedure TForm2.chkUseAutoGenerateValueClick(Sender: TObject);
+uses CachedUpdateModule;
+
+procedure TForm2.btnCancelUpdatesClick(Sender: TObject);
 begin
-  // SEQ 필드는 PK(자동증가) 값으로 설정됨
-  FDQuery1.Close;
-  if chkUseAutoGenerateValue.Checked then
+  DM.FDQuery1.CancelUpdates;
+  DM.FDQuery1.Refresh;
+end;
+
+procedure TForm2.btnLastUndoClick(Sender: TObject);
+begin
+  DM.FDQuery1.UndoLastChange(True);
+end;
+
+procedure TForm2.btnOldValueClick(Sender: TObject);
+begin
+  ShowMessage(format('이전 값: %s  ->  새로운 값: %s',
+                     [
+                      DM.FDQuery1.FieldByName('FIELD1').OldValue,
+                      DM.FDQuery1.FieldByName('FIELD1').Value
+                     ]));
+end;
+
+procedure TForm2.btnRevertRecordClick(Sender: TObject);
+begin
+  DM.FDQuery1.RevertRecord;
+end;
+
+procedure TForm2.btnSavePointClick(Sender: TObject);
+begin
+  FSavePoint := DM.FDQuery1.SavePoint;
+end;
+
+procedure TForm2.btnViewCacheClick(Sender: TObject);
+begin
+  if DM.FDQuery1.Active then
   begin
-    FDQuery1SEQ.AutoGenerateValue := arAutoInc;
-    FDQuery1SEQ.Required := False;
-    FDQuery1SEQ.ReadOnly := True;
-    // 새로운 레코드 추가 시 SEQ가 (-1 -> -2 -> -3 으로 자동 생성됨)
-  end
-  else
-  begin
-    FDQuery1SEQ.AutoGenerateValue := arNone;
-    FDQuery1SEQ.Required := True;
-    FDQuery1SEQ.ReadOnly := False;
-    // 새로운 레코드 추가 시 NULL로 설정됨(수동 설정 필요)
-    // 저장(Post) 시 'Must have a value' 오류 발생
+    DM.FDMemTable1.CloneCursor(DM.FDQuery1, True);
+    DM.FDMemTable1.FilterChanges := [rtModified, rtInserted, rtDeleted];
   end;
-  FDQuery1.Open;
-end;
-
-procedure TForm2.chkUseCachedUpdatesClick(Sender: TObject);
-var
-  UseCachedUpdates: Boolean;
-begin
-  UseCachedUpdates := chkUseCachedUpdates.Checked;
-
-  FDQuery1.CachedUpdates := UseCachedUpdates;
-
-  btnCancelRefresh.Enabled := UseCachedUpdates;
-  btnApplyUpdates.Enabled := UseCachedUpdates;
-end;
-
-procedure TForm2.btnCancelRefreshClick(Sender: TObject);
-begin
-  FDQuery1.CancelUpdates;
-  FDQuery1.Refresh;
 end;
 
 procedure TForm2.btnApplyUpdatesClick(Sender: TObject);
 var
   iErr: Integer;
 begin
-  FDConnection1.StartTransaction;
+  DM.FDConnection1.StartTransaction;
 
   // ApplyUpdates는 오류를 발생하지 않음
-  iErr := FDQuery1.ApplyUpdates(-1);
+  iErr := DM.FDQuery1.ApplyUpdates(-1);
   if iErr = 0 then
   begin
-    FDQuery1.CommitUpdates; // 변경로그 지우기
-    FDConnection1.Commit;
+    DM.FDQuery1.CommitUpdates; // 변경로그 지우기
+    DM.FDConnection1.Commit;
   end
   else
-    FDConnection1.Rollback;
+    DM.FDConnection1.Rollback;
 
-  FDQuery1.Refresh;
+  DM.FDQuery1.Refresh;
+end;
+
+procedure TForm2.btnBackSPointClick(Sender: TObject);
+begin
+  if FSavePoint > 0 then
+    DM.FDQuery1.SavePoint := FSavePoint;
 end;
 
 end.
