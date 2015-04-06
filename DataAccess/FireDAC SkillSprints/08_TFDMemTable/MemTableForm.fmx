@@ -1,0 +1,71 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'TFDMemTable DEMO'
+  ClientHeight = 444
+  ClientWidth = 632
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object GridBindSourceDB1: TGrid
+    Position.X = 328.000000000000000000
+    Position.Y = 16.000000000000000000
+    Size.Width = 289.000000000000000000
+    Size.Height = 409.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    RowCount = 55
+    RowHeight = 21.000000000000000000
+  end
+  object Memo1: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    Position.X = 16.000000000000000000
+    Position.Y = 16.000000000000000000
+    Size.Width = 257.000000000000000000
+    Size.Height = 409.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    TextSettings.WordWrap = True
+  end
+  object Button1: TButton
+    Position.X = 276.000000000000000000
+    Position.Y = 120.000000000000000000
+    Size.Width = 49.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'arrowlefttoolbutton'
+    TabOrder = 7
+    Text = 'Button1'
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    Position.X = 277.000000000000000000
+    Position.Y = 160.000000000000000000
+    Size.Width = 49.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'arrowrighttoolbutton'
+    TabOrder = 6
+    Text = 'Button1'
+    OnClick = Button2Click
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = DM.FDMemTable1
+    ScopeMappings = <>
+    Left = 552
+    Top = 160
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 548
+    Top = 221
+    object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      GridControl = GridBindSourceDB1
+      Columns = <>
+    end
+  end
+end
