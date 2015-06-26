@@ -1,0 +1,54 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 186
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 3
+  object WebBrowser1: TWebBrowser
+    EnableCaching = False
+    Align = Client
+    Size.Width = 640.000000000000000000
+    Size.Height = 138.000000000000000000
+    Size.PlatformDefault = False
+    URL = 'http://hjf.pe.kr/fmx/hybrid.php'
+    OnDidStartLoad = WebBrowser1DidStartLoad
+    OnShouldStartLoadWithRequest = WebBrowser1ShouldStartLoadWithRequest
+  end
+  object ToolBar1: TToolBar
+    Size.Width = 640.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object Button1: TButton
+      Align = Left
+      ClipParent = True
+      Margins.Left = 6.000000000000000000
+      Margins.Top = 6.000000000000000000
+      Margins.Bottom = 6.000000000000000000
+      Position.X = 54.000000000000000000
+      Position.Y = 6.000000000000000000
+      Size.Width = 219.000000000000000000
+      Size.Height = 36.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = #51088#48148#49828#53356#47549#53944' '#54840#52636#54616#44592
+      OnClick = Button1Click
+    end
+    object Button2: TButton
+      Align = MostLeft
+      ClipParent = True
+      Size.Width = 48.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'backtoolbutton'
+      TabOrder = 0
+      Text = #51088#48148#49828#53356#47549#53944' '#54840#52636#54616#44592
+      OnClick = Button2Click
+    end
+  end
+end

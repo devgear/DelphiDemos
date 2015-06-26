@@ -16,7 +16,8 @@ win32/*
 dunit.ini
 *.deployproj
 *.tvsconfig
-OSX32/*
-iOSDevice/*
-Android/*
-/DataAccess/FireDAC SkillSprints/02_Tracing_Monitoring/Win32/Debug/trace.txt
+**/OSX32/*
+**/iOSDevice/*
+**/Android/*
+**/Win32/*
+**/Win64/*
