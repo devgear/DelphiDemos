@@ -1,0 +1,252 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'FireDAC MergeDataSet DEMO'
+  ClientHeight = 439
+  ClientWidth = 626
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Grid1: TGrid
+    Position.X = 16.000000000000000000
+    Position.Y = 24.000000000000000000
+    Size.Width = 281.000000000000000000
+    Size.Height = 113.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 7
+    RowCount = 100
+    RowHeight = 21.000000000000000000
+    Viewport.Width = 261.000000000000000000
+    Viewport.Height = 88.000000000000000000
+  end
+  object Grid2: TGrid
+    Position.X = 16.000000000000000000
+    Position.Y = 312.000000000000000000
+    Size.Width = 281.000000000000000000
+    Size.Height = 105.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    RowCount = 100
+    RowHeight = 21.000000000000000000
+    Viewport.Width = 261.000000000000000000
+    Viewport.Height = 80.000000000000000000
+  end
+  object Grid3: TGrid
+    Position.X = 312.000000000000000000
+    Position.Y = 24.000000000000000000
+    Size.Width = 281.000000000000000000
+    Size.Height = 185.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    RowCount = 0
+    RowHeight = 21.000000000000000000
+    Viewport.Width = 277.000000000000000000
+    Viewport.Height = 160.000000000000000000
+  end
+  object Button1: TButton
+    Position.X = 312.000000000000000000
+    Position.Y = 232.000000000000000000
+    Size.Width = 137.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 12
+    Text = #45936#51060#53552' '#52292#50864#44592
+    OnClick = Button1Click
+  end
+  object Button3: TButton
+    Position.X = 312.000000000000000000
+    Position.Y = 280.000000000000000000
+    Size.Width = 137.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 15
+    Text = 'List '#45936#51060#53552' '#52628#44032
+    OnClick = Button3Click
+  end
+  object Grid4: TGrid
+    Position.X = 16.000000000000000000
+    Position.Y = 168.000000000000000000
+    Size.Width = 281.000000000000000000
+    Size.Height = 113.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 6
+    RowCount = 100
+    RowHeight = 21.000000000000000000
+    Viewport.Width = 261.000000000000000000
+    Viewport.Height = 88.000000000000000000
+  end
+  object Button4: TButton
+    Position.X = 456.000000000000000000
+    Position.Y = 280.000000000000000000
+    Size.Width = 137.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 14
+    Text = 'List2 '#45936#51060#53552' '#52628#44032
+    OnClick = Button4Click
+  end
+  object Button5: TButton
+    Position.X = 312.000000000000000000
+    Position.Y = 312.000000000000000000
+    Size.Width = 137.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 13
+    Text = 'Detail '#54596#46300' '#54633#52824#44592
+    OnClick = Button5Click
+  end
+  object Label1: TLabel
+    Position.X = 16.000000000000000000
+    Position.Y = 8.000000000000000000
+    Text = 'List '#45936#51060#53552
+  end
+  object Label2: TLabel
+    Position.X = 16.000000000000000000
+    Position.Y = 152.000000000000000000
+    Text = 'List '#45936#51060#53552' 2'
+  end
+  object Label3: TLabel
+    Position.X = 16.000000000000000000
+    Position.Y = 296.000000000000000000
+    Text = #49345#49464' '#45936#51060#53552
+  end
+  object Label4: TLabel
+    Position.X = 312.000000000000000000
+    Position.Y = 8.000000000000000000
+    Text = #48337#54633#46108' '#45936#51060#53552
+  end
+  object memList: TFDMemTable
+    FieldDefs = <>
+    IndexDefs = <>
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    StoreDefs = True
+    Left = 88
+    Top = 64
+    object memListID: TIntegerField
+      FieldName = 'ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object memListName: TStringField
+      FieldName = 'Name'
+    end
+  end
+  object memDetail: TFDMemTable
+    IndexFieldNames = 'ID'
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    Left = 96
+    Top = 360
+    object memDetailID: TIntegerField
+      FieldName = 'ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object memDetailName: TStringField
+      FieldName = 'Name'
+    end
+    object memDetailaddr: TStringField
+      FieldName = 'addr'
+    end
+  end
+  object memMerge: TFDMemTable
+    FieldDefs = <>
+    IndexDefs = <>
+    IndexFieldNames = 'ID'
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    StoreDefs = True
+    Left = 384
+    Top = 72
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = memList
+    ScopeMappings = <>
+    Left = 177
+    Top = 64
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 473
+    Top = 325
+    object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      GridControl = Grid1
+      Columns = <>
+    end
+    object LinkGridToDataSourceBindSourceDB2: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB2
+      GridControl = Grid2
+      Columns = <>
+    end
+    object LinkGridToDataSourceBindSourceDB3: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB3
+      GridControl = Grid3
+      Columns = <>
+    end
+    object LinkGridToDataSourceBindSourceDB4: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB4
+      GridControl = Grid4
+      Columns = <>
+    end
+  end
+  object BindSourceDB2: TBindSourceDB
+    DataSet = memDetail
+    ScopeMappings = <>
+    Left = 184
+    Top = 360
+  end
+  object BindSourceDB3: TBindSourceDB
+    DataSet = memMerge
+    ScopeMappings = <>
+    Left = 481
+    Top = 72
+  end
+  object memList2: TFDMemTable
+    FieldDefs = <>
+    IndexDefs = <>
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    StoreDefs = True
+    Left = 88
+    Top = 184
+    object IntegerField1: TIntegerField
+      FieldName = 'ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object StringField1: TStringField
+      FieldName = 'Name'
+    end
+  end
+  object BindSourceDB4: TBindSourceDB
+    DataSet = memList2
+    ScopeMappings = <>
+    Left = 184
+    Top = 184
+  end
+end
